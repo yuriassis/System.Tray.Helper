@@ -48,7 +48,7 @@
             // 
             // buttonRemove
             // 
-            this.buttonRemove.Image = global::ART.Dynamic.Tools.Properties.Resources.delete;
+            this.buttonRemove.Image = global::System.Tray.Helper.Properties.Resources.delete;
             this.buttonRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonRemove.Location = new System.Drawing.Point(137, 349);
             this.buttonRemove.Name = "buttonRemove";
@@ -61,7 +61,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Image = global::ART.Dynamic.Tools.Properties.Resources.setting_tools;
+            this.buttonEdit.Image = global::System.Tray.Helper.Properties.Resources.setting_tools;
             this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEdit.Location = new System.Drawing.Point(73, 349);
             this.buttonEdit.Name = "buttonEdit";
@@ -74,7 +74,7 @@
             // 
             // buttonNew
             // 
-            this.buttonNew.Image = global::ART.Dynamic.Tools.Properties.Resources.add;
+            this.buttonNew.Image = global::System.Tray.Helper.Properties.Resources.add;
             this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNew.Location = new System.Drawing.Point(9, 349);
             this.buttonNew.Name = "buttonNew";
@@ -154,7 +154,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Image = global::ART.Dynamic.Tools.Properties.Resources.disk_multiple;
+            this.buttonSave.Image = global::System.Tray.Helper.Properties.Resources.disk_multiple;
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSave.Location = new System.Drawing.Point(218, 349);
             this.buttonSave.Name = "buttonSave";

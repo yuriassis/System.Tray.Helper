@@ -16,7 +16,6 @@ namespace ART.Dynamic.Tools
     public partial class FormMain : Form
     {
         private List<ScriptInfo> scripts = new List<ScriptInfo>();
-        private NotifyIcon trayIcon;
         private string jsonFilePath;
         private bool minimizeToTrayOnClose;
 
