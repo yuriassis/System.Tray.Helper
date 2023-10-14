@@ -1,6 +1,10 @@
 # System.Tray.Helper
 Application designed to provide a location for configurable shortcuts for the user favorite scripts. It also can run exe files from other applications. 
 
+### Execution
+
+To run the app, the compiled version on the "deploy" folder can be used.
+
 ### Basic Configuration
 
 ![image](https://github.com/yuriassis/System.Tray.Helper/assets/8050373/6a88913a-25c3-4f23-93a4-cdd5a6a62cef)
