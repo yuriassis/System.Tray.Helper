@@ -1,0 +1,789 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A297904-4EA5-43D9-A892-17089A4ADC6D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ART.Dynamic.Tools</RootNamespace>
+    <AssemblyName>ART.Dynamic.Tools</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.7.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Permissions.7.0.0\lib\net462\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Script.cs" />
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\accept_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\account_functions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\account_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\administrator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\allow_users_edit_ranges.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\application_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\application_form_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\application_side_boxes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\application_side_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\application_view_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\arrow_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\ART.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\bell_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\bell_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\bell_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\bell_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\bell_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\blank_report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\bug_report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\bullet_connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\bullet_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\bullet_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\change_password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\check_box_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\cog_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\cog_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\cog_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\cog_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\computer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\computer_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\computer_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\computer_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\computer_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\computer_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\computer_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\computer_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\connections.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_access.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_cleanup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_make_mde_file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_mysql_php.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_repeat_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_repeat_entry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_repeat_insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_server.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\database_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\date_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\date_time_functions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\directory_listing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\disk_multiple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\document_editing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\document_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\door_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\door_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\door_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\drive_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\edit_recipient_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\feed_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\file_extension_pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\filter_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\filter_advanced.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\filter_clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\filter_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\filter_reapply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\folder_bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\folder_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\group_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\group_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\group_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\group_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\group_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\group_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\group_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\group_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\horizontal_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\information1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\keyboard_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\layer_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\list_box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\list_suspended_accounts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\lock_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\lock_break.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\lock_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\lock_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\lock_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\lock_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\locomotive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\locomotive_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\magnifier_zoom_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\magnifier_zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\map_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\modify_suspended_account_page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\node_magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\odbs_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\page_magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\page_white_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\page_white_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_design.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_torn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_wizard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\report_word.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\resultset_first.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\resultset_last.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\resultset_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\resultset_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\scroll_pane_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\search_accounts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\server_connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\server_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\server_information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\session_idle_time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\setting_tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\sun_cloudy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\sun_rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\system_time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\temperature_cold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\temperature_cool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\temperature_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\temperature_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\temperature_warm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\text_list_bullets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\text_list_numbers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\time_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\time_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\time_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\timeline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\timeline_marker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\to_do_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\to_do_list_checked_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\to_do_list_checked_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\todo_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\train_metro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\transmit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\transmit_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\transmit_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\transmit_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\transmit_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\transmit_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\transmit_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\tree_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\user_suit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\users_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\users_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\users_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\users_men_women.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\view_trackwarrant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_clouds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_cloudy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_moon_cloudy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_moon_fog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_moon_half.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_rain_little.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_snow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_snow_little.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_sun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\PNG\16x16\weather_sun_fog.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
